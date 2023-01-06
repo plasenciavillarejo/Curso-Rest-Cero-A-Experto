@@ -1,1 +1,16 @@
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/entity/Address.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/config/FakerBeanConfig.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/repository/IProfileRepository.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/entity/User.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/entity/UserInRole.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/repository/IUserRepository.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/repository/IAddressRepository.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/controllers/RoleController.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/services/RoleService.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/controllers/UserController.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/repository/IRoleRepository.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/entity/Role.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/model/User.java
 /Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/CursoRestCeroAExpertoApplication.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/entity/Profile.java
+/Users/joseplasenciavillarejo/git/Curso-Rest-Cero-A-Experto/src/main/java/com/curso/spring/services/UserService.java
