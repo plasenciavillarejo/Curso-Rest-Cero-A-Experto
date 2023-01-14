@@ -13,8 +13,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.curso.spring.entity.Role;
 import com.curso.spring.repository.IRoleRepository;
 
-import jakarta.transaction.Transactional;
-
 @Service
 public class RoleService {
 
@@ -23,12 +21,11 @@ public class RoleService {
 
 	private static final Logger log = LoggerFactory.getLogger(RoleService.class);
 
-	@Transactional
 	public List<Role> getRoles() {
 		return roleRepository.findAll();
 	}
 
-	@Transactional
+
 	public Role createRole(Role role) {
 		roleRepository.save(role);
 		log.info("Se ha creado correcamente el rol: {}, con el id: {}", role.getName());

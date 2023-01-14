@@ -11,7 +11,7 @@
 	<artifactId>Curso-Rest-Cero-A-Experto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Curso-Rest-Cero-A-Experto</name>
-	<description>Proyecto Spring Security con Autenticación X509</description>
+	<description>Curso Rest</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -52,17 +52,59 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>3.0.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>2.1.214</version>
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- Para conocer el estado de la aplicación 'Métricas' -->
+
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--		</dependency>-->
+
+		<!-- Para crear mis propias métricas --> 
+<!--		<dependency>-->
+<!--			<groupId>io.micrometer</groupId>-->
+<!--			<artifactId>micrometer-registry-prometheus</artifactId>-->
+<!--		</dependency>-->
+	
+		<!-- Inicio: Dependencias necesarias para utilizar Swagger con spring boot 3.0 -->
+	
+		<!-- Nos brinda todas las clases necesarias para trabajar con swagger -->
+		
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		
+		<!-- Nos brinda una interfaz de usuario donde podremos ver toda la documentacion -->
+		
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		
+		<!-- Fin: Dependencias necesarias para trabajar con swagger -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+			<version>3.0.1</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
 
 	</dependencies>
 

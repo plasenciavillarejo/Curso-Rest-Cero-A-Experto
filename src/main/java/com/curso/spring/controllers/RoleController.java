@@ -3,6 +3,7 @@ package com.curso.spring.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +26,7 @@ public class RoleController {
 	private RoleService roleService;
 
 	@GetMapping
+	@Cacheable("listaRoles")
 	public ResponseEntity<List<Role>> getRoles() {
 		return new ResponseEntity<List<Role>>(roleService.getRoles(), HttpStatus.OK);
 	}
