@@ -1,6 +1,9 @@
 package com.curso.spring.util;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,9 +30,23 @@ public class Utilitis {
 			User user = new User();
 			user.setUsername(faker.name().username());
 			user.setPassword(faker.dragonBall().character());
-			user.setProfile(null);
 			userRepository.save(user);
 		}
 	}
 
+	public Date convertirFecha(Date fechaRecibida) {
+		// Pasamos el objeto a String y luego una vez convertido lo pasamos nuevamente a Date() pero ya en formato yyyy-MM-dd;
+		Date date = new Date();
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+		String fechaAString = formato.format(fechaRecibida);
+		
+		Date transformFecha =null;
+		try {
+			transformFecha = formato.parse(fechaAString);
+		}catch (Exception e) {
+			e.getMessage();
+		}
+		return transformFecha;
+	}
+	
 }
