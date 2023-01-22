@@ -1,9 +1,6 @@
 package com.curso.spring.services;
 
-import java.util.Date;
 import java.util.Optional;
-
-import javax.swing.text.Utilities;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

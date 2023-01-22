@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.spring.entity.Profile;
 import com.curso.spring.services.ProfileService;
-import com.curso.spring.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users/{userId}/profiles")
