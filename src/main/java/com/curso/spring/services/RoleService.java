@@ -28,7 +28,7 @@ public class RoleService {
 
 	public Role createRole(Role role) {
 		roleRepository.save(role);
-		log.info("Se ha creado correcamente el rol: {}, con el id: {}", role.getName());
+		log.info("Se ha creado correcamente el rol: {}, con el id: {}", role.getName(), role.getId());
 		return role;
 	}
 
