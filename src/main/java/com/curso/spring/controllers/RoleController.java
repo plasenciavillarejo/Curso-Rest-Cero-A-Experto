@@ -52,6 +52,9 @@ public class RoleController {
 	// Devuelve todos los usuarios con un ROL determinado
 	@GetMapping(value = "/{roleName}/users")
 	public ResponseEntity<List<User>> getUserByRole(@PathVariable("roleName") String roleName) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		log.info("El usuario que está autizado para recibir una respuesta a este método es Role_ADMIN");
+		log.info("Usted está ejecutando un usuario que contiene el ROL: {}", authentication.getAuthorities());
 		return new ResponseEntity<List<User>>(roleService.getUsersByRole(roleName), HttpStatus.OK);
 	}
 	
