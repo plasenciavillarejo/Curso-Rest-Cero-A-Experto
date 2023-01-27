@@ -7,11 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.curso.spring.entity.Role;
+import com.curso.spring.entity.User;
 import com.curso.spring.repository.IRoleRepository;
+import com.curso.spring.repository.IUserInRoleRepository;
+
+import jakarta.annotation.security.RolesAllowed;
 
 @Service
 public class RoleService {
@@ -19,13 +24,22 @@ public class RoleService {
 	@Autowired
 	private IRoleRepository roleRepository;
 
+	@Autowired
+	private IUserInRoleRepository userInRoleRepository;
+	
 	private static final Logger log = LoggerFactory.getLogger(RoleService.class);
 
+	// Le indicamos que solo este rol podrá ejecutar nuestro método.
+	@Secured({"ROLE_ADMIN"})
+	//@RolesAllowed({"ROLE_ADMIN"})
 	public List<Role> getRoles() {
 		return roleRepository.findAll();
 	}
 
-
+	public List<User> getUsersByRole(String roleName){
+		return userInRoleRepository.findByUserByRole(roleName);
+	}
+	
 	public Role createRole(Role role) {
 		roleRepository.save(role);
 		log.info("Se ha creado correcamente el rol: {}, con el id: {}", role.getName(), role.getId());
