@@ -7,17 +7,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.curso.spring.entity.AuditoriaDetails;
 import com.curso.spring.entity.Role;
 import com.curso.spring.entity.User;
 import com.curso.spring.repository.IRoleRepository;
 import com.curso.spring.repository.IUserInRoleRepository;
 import com.curso.spring.util.MetaAnotacionSpringSecurity;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.annotation.security.RolesAllowed;
 
@@ -31,6 +36,13 @@ public class RoleService {
 
 	@Autowired
 	private IUserInRoleRepository userInRoleRepository;
+	
+	
+	// Inyectamos el KafkaTemplate encargado de enviar los mensajes
+	@Autowired
+	private KafkaTemplate<Integer, String> kafkaTemplate;
+	
+	private ObjectMapper formatoJson = new ObjectMapper();
 	
 	private static final Logger log = LoggerFactory.getLogger(RoleService.class);
 
@@ -59,6 +71,15 @@ public class RoleService {
 	}
 	
 	public Role createRole(Role role) {
+		AuditoriaDetails auditoria = new AuditoriaDetails(
+				SecurityContextHolder.getContext().getAuthentication().getName(), role.getName());
+
+		try {
+			log.info("Se procede a enviar el mensaje mediante kafkaTemplate");
+			kafkaTemplate.send("plasencia-topic", formatoJson.writeValueAsString(auditoria));
+		} catch (JsonProcessingException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error al parsear el mensaje");
+		}
 		roleRepository.save(role);
 		log.info("Se ha creado correcamente el rol: {}, con el id: {}", role.getName(), role.getId());
 		return role;
